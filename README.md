@@ -11,3 +11,5 @@ https://docs.pytest.org/en/stable/fixture.html#fixture-parametrize
 https://docs.pytest.org/en/stable/parametrize.html#pytest-mark-parametrize
 
 https://www.softwaretestinghelp.com/what-is-pairwise-testing/
+
+https://docs.pytest.org/en/latest/example/parametrize.html?highlight=pytest_generate_tests
