@@ -1,6 +1,6 @@
 def pytest_addoption(parser):
     parser.addoption(
-        "--input", action="append", default=[], type=str,
+        "--inp", action="append", default=[], type=str,
         help="inputs to pass to test functions",
     )
 
@@ -9,8 +9,8 @@ def pytest_addoption(parser):
 
 def pytest_generate_tests(metafunc):
 
-    if "input" in metafunc.fixturenames:
-        metafunc.parametrize("input", metafunc.config.getoption("input"))
+    if "inp" in metafunc.fixturenames:
+        metafunc.parametrize("inp", metafunc.config.getoption("--inp"))
 
     if "limited_param" in metafunc.fixturenames:
         end = 3
