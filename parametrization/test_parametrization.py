@@ -9,7 +9,12 @@ def test_one(param):
 
 
 # Example with several parameters
-@pytest.mark.parametrize("param1,param2", [(1, 2), (3, 4), (5, 6), (7, 8)])
+@pytest.mark.parametrize("param1,param2", [
+    (1, 2),
+    (3, 4),
+    (5, 6),
+    (7, 8)
+])
 def test_two(param1, param2):
     assert (param1 + param2) % 3 == 0
 
@@ -32,12 +37,12 @@ def test_api_empty_response_on_user_id(userId, base_url):
 @pytest.mark.parametrize("test_input, expected", [
                              ("3+5", 8),
                              ("2+4", 6),
-                             pytest.param("6*9", 42, marks=pytest.mark.skip("JIRA-12312"))
+                             pytest.param("6*9", 42, marks=pytest.mark.skip(reason="JIRA-12312"))
                          ])
 def test_eval(test_input, expected):
     assert eval(test_input) == expected
 
 
-@pytest.mark.parametrize("function_param", [1, 2, 3], ids=["one", "two", "three"])
-def test_with_fixture(param_fixture, function_param):
-    assert (param_fixture + function_param) % 2 == 0
+@pytest.mark.parametrize("param", [1, 2, 3], ids=["one", "two", "three"])
+def test_with_fixture(param_fixture, param):
+    assert (param_fixture + param) % 2 == 0
